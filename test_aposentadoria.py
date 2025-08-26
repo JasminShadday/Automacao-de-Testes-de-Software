@@ -1,5 +1,5 @@
 import unittest
-from Aposentadoria import verificar_qualificacao_empregado
+from aposentadoria import verificar_qualificacao_empregado
 
 class TesteVerificarQualificacaoEmpregado(unittest.TestCase):
     def test_verificar_qualificacao_empregado(self):

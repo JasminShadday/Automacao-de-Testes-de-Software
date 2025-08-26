@@ -1,7 +1,7 @@
 # Este arquivo contém testes unitários para a função avaliar_notas do módulo escolar.py.
 # Ele verifica se a função retorna os conceitos corretos e se lida com erros de entrada.
 import unittest
-from Escolar import avaliar_notas
+from escolar import avaliar_notas
 
 class TesteAvaliarNotas(unittest.TestCase):
     def test_avaliar_notas(self):
