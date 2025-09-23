@@ -1,0 +1,16 @@
+from datetime import date
+from livroRepositorioFake import LivroRepositorioFake
+from src.livro import Livro
+from src.livroServico import LivroServico
+
+def test_inserir_dois_livros_deve_retornar_contagem_2():
+     #Preparação
+    livroRepositorio = LivroRepositorioFake()
+    livroServico = LivroServico(livroRepositorio)
+    l1 = Livro('111', 'Python para iniciantes', 50.0, date.today()) 
+    l2 = Livro('222', 'Testes automatizados', 70.0, date.today())
+    #acão
+    livroServico.insere_livro(l1)
+    livroServico.insere_livro(l2)
+    #verificação
+    assert livroServico.obter_tamanho() == 2 
