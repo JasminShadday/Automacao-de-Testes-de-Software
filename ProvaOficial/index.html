@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prova Oficial</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: rgb(255, 255, 255);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #f1c00b;
+            padding-bottom: 10px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        input[type="text"], select, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: border 0.3s;
+        }
+        
+        input[type="text"]:focus, select:focus, textarea:focus {
+            border-color: #f0e907;
+            outline: none;
+        }
+        
+        .birth-date {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .birth-date input {
+            flex: 1;
+        }
+        
+        textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            background-color: #ebc804;
+            color: white;
+            border: none;
+            padding: 14px 20px;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+        
+        .submit-btn:hover {
+            background-color: #887f04;
+        }
+        
+        .optional {
+            color: #7f8c8d;
+            font-size: 14px;
+            font-style: italic;
+        }
+        
+        .required::after {
+            content: " *";
+            color: #e74c3c;
+        }
+        
+        .form-section {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #ecf0f1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Prova Oficial - Automação de Teste de Software</h1>
+        
+        <form id="evaluationForm">
+            <div class="form-section">
+                <div class="form-group">
+                    <label for="nome" class="required">Nome</label>
+                    <input type="text" id="nome" name="nome" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="ra" class="required">RA</label>
+                    <input type="text" id="ra" name="ra" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="dataNascimento" class="required">Data de Nascimento</label>
+                    <div class="birth-date">
+                        <input type="text" id="dia" name="dia" placeholder="Dia" maxlength="2" required>
+                        <input type="text" id="mes" name="mes" placeholder="Mês" maxlength="2" required>
+                        <input type="text" id="ano" name="ano" placeholder="Ano" maxlength="4" required>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-section">
+                <div class="form-group">
+                    <label for="curso" class="required">Curso</label>
+                    <select id="curso" name="curso" required>
+                        <option value="">Selecione seu curso</option>
+                        <option value="ads">Análise e Desenvolvimento de Sistemas</option>
+                        <option value="si">Sistemas de Informação</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="aproveitamento" class="required">Aproveitamento do Conteúdo</label>
+                    <select id="aproveitamento" name="aproveitamento" required>
+                        <option value="">Selecione uma nota</option>
+                        <option value="0">0 - Muito baixo</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5 - Médio</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10 - Excelente</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="form-section">
+                <div class="form-group">
+                    <label for="sugestoes" class="required">Sugestões de Melhoria para Próximas Turmas</label>
+                    <textarea id="sugestoes" name="sugestoes" required></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="observacoes">Observações <span class="optional">(opcional)</span></label>
+                    <textarea id="observacoes" name="observacoes"></textarea>
+                </div>
+            </div>
+            
+            <button type="submit" class="submit-btn" id="enviar">Enviar Feedback</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('evaluationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Feedback enviado com sucesso! Obrigado pela sua avaliação.');
+            // Aqui normalmente enviaríamos os dados para um servidor
+            this.reset();
+        });
+    </script>
+</body>
+</html>
